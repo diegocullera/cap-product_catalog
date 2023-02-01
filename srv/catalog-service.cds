@@ -39,7 +39,9 @@ service CatalogService {
             ),
             UnitOfMeasure as ToUnitOfMeasure @mandatory,
             Currency      as ToCurrency      @mandatory,
+            Currency.ID   as CurrencyId,
             Category      as ToCategory      @mandatory,
+            Category.ID   as CategoryId,
             Category.Name as Category        @readonly,
             DimensionUnit as ToDimensionUnit,
             SalesData,
@@ -172,9 +174,11 @@ define service Reports {
             Price as Price2 : Integer
         from dmr2935.materials.Products;
 
-    entity EntityExists as
+    entity EntityExists  as
         select from dmr2935.materials.Products {
             Name
-        } where exists Supplier[Name = 'Exotic Liquids'];
+        }
+        where
+            exists Supplier[Name = 'Exotic Liquids'];
 
 }

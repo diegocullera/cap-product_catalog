@@ -2,8 +2,9 @@ namespace com.training;
 
 using {
     cuid,
-    managed
-} from '@sap/cds/common.cds'; 
+    managed,
+    Country,
+} from '@sap/cds/common.cds';
 
 // define type Gender : String enum {
 //     male;
@@ -79,4 +80,13 @@ entity Car {
         virtual discount_2 : Decimal;
 };
 
-
+entity Orders {
+    key ClientEmail : String(65);
+        FirstName   : String(30);
+        LastName    : String(30);
+        CreatedOn   : Date;
+        Reviewed    : Boolean;
+        Approved    : Boolean;
+        Country     : Country;
+        status      : String(1);
+};

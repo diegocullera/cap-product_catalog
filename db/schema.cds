@@ -120,7 +120,7 @@ context sales {
 
     entity Suppliers : cuid, managed {
         //key ID      : UUID;
-        Name    : materials.Products:Name;
+        Name    : type of materials.Products : Name;
         Address : Address;
         Email   : String;
         Phone   : String;
